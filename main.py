@@ -1,12 +1,14 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
+import os
+from dotenv import load_dotenv, dotenv_values
+load_dotenv()
 
 def send_mail(receiver_email , text):
 
-    sender_email = "bobirjonmuxammadov20314@gmail.com"
-    password = "davmilkynsicldlz"
+    sender_email = os.getenv("EMAIL")
+    password = os.getenv("PASSWORD")
 
     message = MIMEMultipart("alternative")
     message["Subject"] = "multipart test"
